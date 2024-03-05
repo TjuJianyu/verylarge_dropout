@@ -52,5 +52,26 @@ python -m domainbed.scripts.trainv2   --data_dir=/my/data/dir \
 * Choose ${test_env} from ```0``` to ```3``` to set corresponding environment as the test envorinment. 
 * Choose ${lr} from ```[5e-4, 1e-3]``` and ${weight_decay} from ```[1e-4, 5e-5, 1e-5]```.
 
+# Results
+
+### Performance comparison between very large dropout, ensembles, and weight averaging methods
 
 
+![](figure/dropout.png)
+*<p style="text-align: center;"> Figure 1: The horizontal axis denotes the i.i.d. performance and the vertical axis the o.o.d. performance. Baseline results were obtained using plain fine-tuning with different hyperparameters (1296×●). Weight averaging results either average the model weights collected every 300 iterations along each fine-tuning trajectory (1296× green star) or the final model weights of all fine-tuning trajectories (1× green star with black edge) as in [(Rame et al. ,2022b)](https://arxiv.org/abs/2205.09739). Ensemble results average instead the model outputs (1296× teal triangle and 1× teal triangle with black edge). Finally, large dropout results were obtained like the baseline results but using a 90% dropout rate on the penultimate layer.</p>*
+
+### Effect of diverse dropout rates during fine-tuning
+![](figure/sgd_v2_regstrength.png)
+*<p style="text-align: center;">Figure 2: The best o.o.d. performances are attained using rates around or above 90%.</p>*
+
+# Citation
+If you find this code useful for your research, please consider citing our work:
+
+```sh
+@article{zhang2024finetuning,
+  title={Fine-tuning with very large Dropout},
+  author={Zhang, Jianyu and Bottou, L{\'e}on},
+  journal={arXiv preprint arXiv:2403.00946},
+  year={2024}
+}
+```
