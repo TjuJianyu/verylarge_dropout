@@ -66,12 +66,9 @@ if __name__ == "__main__":
        help="For domain adaptation, \% of test to use unlabeled for training.")
     parser.add_argument('--skip_model_save', action='store_true')
     parser.add_argument('--save_model_every_checkpoint', action='store_true')
-    ## DiWA ##
+
     parser.add_argument('--init_step', action='store_true')
     parser.add_argument('--path_for_init', type=str, default=None)
-    parser.add_argument('--optimizer', type=str, default='Adam') #[Adam, sgd]
-    parser.add_argument('--momentum', type=float, default=0.9) # momentum in sgd, beta1 in adam
-    parser.add_argument('--beta2', type=float, default=0.99) # beta2 in adam
     parser.add_argument('--save_logits', type=int, default=0) 
     parser.add_argument('--outsplit_noaug', type=int, default=0) 
     #parser.add_argument('--init_clf_std',  action='store_true')
@@ -509,12 +506,7 @@ if __name__ == "__main__":
                     best_score = current_score
                     print(f"Saving new best score at step: {step} at path: model_best.pkl")
                     save_checkpoint('model_best.pkl', start_step, best_score, last_results_keys)
-                # if swa_current_score > swa_best_score: 
-                #     swa_best_score = swa_current_score
-                #     print(f"Saving swa new best score at step: {step} at path: swa_model_best.pkl")
-                #     save_checkpoint('swa_model_best.pkl', start_step, best_score, last_results_keys)
 
-                #save_checkpoint('model.pkl', start_step, best_score, last_results_keys)
                 if args.save_model_every_checkpoint:
                     save_checkpoint(f'model_step{step}.pkl')
 
@@ -522,9 +514,6 @@ if __name__ == "__main__":
             
             t0 = time.time()
 
-        # ## DiWA ##
-        # if args.init_step:
-        #    algorithm.save_path_for_future_init(args.path_for_init)
-        
+
         with open(os.path.join(args.output_dir, 'done'), 'w') as f:
             f.write('done')

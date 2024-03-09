@@ -51,6 +51,10 @@ python -m domainbed.scripts.trainv2   --data_dir=/my/data/dir \
 * Choose ${dataset} from ```VLCS```, ```PACS```, ```OfficeHome```, and ```TerraIncognita```.
 * Choose ${test_env} from ```0``` to ```3``` to set corresponding environment as the test envorinment. 
 * Choose ${lr} from ```[5e-4, 1e-3]``` and ${weight_decay} from ```[1e-4, 5e-5, 1e-5]```.
+* Note: For each ```${dataset} ${test_env} ${lr} ${weight_decay}``` combination, we repeat three trials with different seeds to reduce evaluation variance. Then (for each trials) we pick the training iterations corresponding to the best IID validation accuracy. Finally, we report the averaged IID and OOD validation accuracies. 
+
+
+  
 
 # Results
 
@@ -68,8 +72,8 @@ python -m domainbed.scripts.trainv2   --data_dir=/my/data/dir \
 If you find this code useful for your research, please consider citing our work:
 
 ```sh
-@article{zhang2024finetuning,
-  title={Fine-tuning with very large Dropout},
+@article{zhang2024fine,
+  title={Fine-tuning with Very Large Dropout},
   author={Zhang, Jianyu and Bottou, L{\'e}on},
   journal={arXiv preprint arXiv:2403.00946},
   year={2024}
