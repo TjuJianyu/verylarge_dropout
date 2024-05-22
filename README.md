@@ -1,6 +1,6 @@
 # Fine-tuning with very large Dropout
 
-Official PyTorch implementation of [Fine-tuning with very large Dropout](https://arxiv.org/abs/2403.00946)
+Official PyTorch implementation of Fine-tuning with very large Dropout
 # TL;DR
 out-of-distribution fine-tuning with very large dropout (90%) exceeds ensemble and weight-averaging methods
 
@@ -68,14 +68,3 @@ python -m domainbed.scripts.trainv2   --data_dir=/my/data/dir \
 ![](figure/sgd_v2_regstrength.png)
 *<p style="text-align: center;">Figure 2: The best o.o.d. performances are attained using rates around or above 90%.</p>*
 
-# Citation
-If you find this code useful for your research, please consider citing our work:
-
-```sh
-@article{zhang2024fine,
-  title={Fine-tuning with Very Large Dropout},
-  author={Zhang, Jianyu and Bottou, L{\'e}on},
-  journal={arXiv preprint arXiv:2403.00946},
-  year={2024}
-}
-```

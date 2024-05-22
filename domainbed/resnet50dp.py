@@ -1,5 +1,5 @@
 # Modified from https://github.com/facebookresearch/swav/blob/main/src/resnet50.py
-# Mar 24, 2023. Jianyu Zhang
+# Mar 24, 2023. 
 
 
 # Copyright (c) Facebook, Inc. and its affiliates.
