@@ -1,5 +1,3 @@
-# Copyright (c) Facebook, Inc. and its affiliates. All Rights Reserved
-
 # modified from https://github.com/facebookresearch/DomainBed/blob/main/domainbed/networks.py
 import torch
 import torch.nn as nn
@@ -185,9 +183,7 @@ class ResNet(torch.nn.Module):
             self.freeze_bn()
 
         self.hparams = hparams
-        #Jianyu aug 10th, 2023: move drop to classfiers after batchnorm, if there is a batchnorm
-        #self.dropout = nn.Dropout(hparams['resnet_dropout'])
-
+        
         if 'bias_only' in self.hparams  and self.hparams['bias_only']:
             self.freeze_nonbias()
             print('freeze non bias')
