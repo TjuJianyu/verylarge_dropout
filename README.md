@@ -1,8 +1,5 @@
-# Fine-tuning with very large Dropout
+# Fine-tuning with very large Dropout for out-of-distribution generalization 
 
-Official PyTorch implementation of Fine-tuning with very large Dropout
-# TL;DR
-out-of-distribution fine-tuning with very large dropout (90%) exceeds ensemble and weight-averaging methods
 
 # Abstract 
 
